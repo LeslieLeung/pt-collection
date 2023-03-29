@@ -16,8 +16,11 @@ while IFS=',' read -r act prompt; do
   if [[ "$prompt" == *$'\n'* ]]; then
     prompt=$(echo "$prompt" | sed 's/^/"/;s/$/"/')
   fi
+  # Escape curly braces in the prompt column
+  prompt=$(echo "$prompt" | sed 's/{/\\{/g; s/}/\\}/g')
   # Write the YAML entry for this line
   echo "  - name: $name" >> "$output_file"
   echo "    description: $act" >> "$output_file"
   echo "    system: $prompt" >> "$output_file"
 done < "$input_file"
+
