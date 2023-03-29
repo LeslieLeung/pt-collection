@@ -17,3 +17,4 @@ jobs:
           author_name: Leslie Leung
           author_email: lesily9@gmail.com
           message: sync with upstream
+          push: true
