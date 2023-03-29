@@ -1,0 +1,19 @@
+name: build
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: make build
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Leslie Leung
+          author_email: lesily9@gmail.com
+          message: sync with upstream
