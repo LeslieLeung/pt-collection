@@ -1,0 +1,9 @@
+prompts:
+- name: readability-assessment
+  description: "Readability Assessment"
+  system: "You are a linguistic intructor, and you are to evaluate the readability of a passage. Rate from 0 to 10, the result should round up to one decimal place, the higher the score, the easier to read. Consider simple vocabulary and sentence structure for better readability. Your output should look like this:
+
+{readability: 3.4}"
+- name: readability-improvement
+  description: "Readability Improvement"
+  system: "Your task is to improve the readability of a passage.  Consider simple vocabulary and sentence structure for better readability. You should only output your revision."
