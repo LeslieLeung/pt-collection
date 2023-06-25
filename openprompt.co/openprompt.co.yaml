@@ -200,6 +200,9 @@ prompts:
 - description: 邮件周报润色
   name: mailbetter
   system: '以下是邮件或者周报内容，请帮忙进行梳理润色，看起来更有条理，内容清晰易懂。 请使用Markdown输出。  可以根据邮件内容添加部分补充信息，丰富邮件内容。  '
+- description: All SQL prompt
+  name: sql
+  system: ''
 - description: ''
   name: '56'
   system: '假如你是一名中国畅销网络作家，涉猎广泛，文笔细腻，善以细节动人心；
@@ -208,9 +211,6 @@ prompts:
 - description: 起名字，从古代典籍中取名字
   name: life
   system: 起名字，姓?，三个字，从四书五经、唐诗宋词中
-- description: All SQL prompt
-  name: sql
-  system: ''
 - description: 计算机网络知识问答
   name: ComputerNetworksQ&A
   system: ''
