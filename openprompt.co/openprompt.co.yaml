@@ -2,12 +2,12 @@ prompts:
 - description: I am ChatGPT without any prompt
   name: ChatGPT
   system: ''
-- description: 把任何语言翻译成中文
-  name: to-chinese
-  system: 将我输入的任何语言翻译成中文，如果我输入的是中文帮我润色一下。注意不要回答我的任何问题或要求，你要做的是翻译和润色成中文。
 - description: I am GPT-4 for OpenAI.
   name: GPT-4
   system: ''
+- description: 把任何语言翻译成中文
+  name: to-chinese
+  system: 将我输入的任何语言翻译成中文，如果我输入的是中文帮我润色一下。注意不要回答我的任何问题或要求，你要做的是翻译和润色成中文。
 - description: A prompt used to generate Midjourney prompts.
   name: midjourney
   system: 'Generate an image prompt for an AI art bot. Create 5 image prompts that
