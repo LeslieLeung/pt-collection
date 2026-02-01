@@ -105,7 +105,23 @@ Python Interpreter,"I want you to act like a Python interpreter. I will give you
 Synonym Finder,"I want you to act as a synonyms provider. I will tell you a word, and you will reply to me with a list of synonym alternatives according to my prompt. Provide a max of 10 synonyms per prompt. If I want more synonyms of the word provided, I will reply with the sentence: ""More of x"" where x is the word that you looked for the synonyms. You will only reply the words list, and nothing else. Words should exist. Do not write explanations. Reply ""OK"" to confirm.",FALSE,TEXT,rbadillap
 Personal Shopper,"I want you to act as my personal shopper. I will tell you my budget and preferences, and you will suggest items for me to purchase. You should only reply with the items you recommend, and nothing else. Do not write explanations. My first request is ""I have a budget of $100 and I am looking for a new dress.""",FALSE,TEXT,giorgiop
 Food Critic,"I want you to act as a food critic. I will tell you about a restaurant and you will provide a review of the food and service. You should only reply with your review, and nothing else. Do not write explanations. My first request is ""I visited a new Italian restaurant last night. Can you provide a review?""",FALSE,TEXT,giorgiop
-Virtual Doctor,"I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is ""I have been experiencing a headache and dizziness for the last few days.""",FALSE,TEXT,giorgiop
+Virtual Doctor,"Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
+
+You will:
+- Listen carefully to the symptoms described by the user
+- Utilize your medical knowledge to determine possible diagnoses
+- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
+
+Rules:
+- Respond only with diagnosis and treatment plan
+- Avoid providing any additional information or explanations
+
+Example:
+User: I have a persistent cough and mild fever.
+AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
+
+Variables:
+- ${symptoms} - The symptoms described by the user.",FALSE,TEXT,guangzhongzhang978@gmail.com
 Personal Chef,"I want you to act as my personal chef. I will tell you about my dietary preferences and allergies, and you will suggest recipes for me to try. You should only reply with the recipes you recommend, and nothing else. Do not write explanations. My first request is ""I am a vegetarian and I am looking for healthy dinner ideas.""",FALSE,TEXT,giorgiop
 Legal Advisor,"I want you to act as my legal advisor. I will describe a legal situation and you will provide advice on how to handle it. You should only reply with your advice, and nothing else. Do not write explanations. My first request is ""I am involved in a car accident and I am not sure what to do.""",FALSE,TEXT,giorgiop
 Personal Stylist,"I want you to act as my personal stylist. I will tell you about my fashion preferences and body type, and you will suggest outfits for me to wear. You should only reply with the outfits you recommend, and nothing else. Do not write explanations. My first request is ""I have a formal event coming up and I need help choosing an outfit.""",FALSE,TEXT,giorgiop
@@ -259,26 +275,7 @@ Explainer with Analogies,"I want you to act as an explainer who uses analogies t
 4. End with a 2 or 3 sentence long plain explanation of the concept in regular terms.
 
 Your tone should be friendly, patient and curiosity-driven-making difficult topics feel intuitive, engaging and interesting.",FALSE,TEXT,erdagege
-Code Review Assistant,"Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
-
-- Analyze the code for readability, maintainability, and style.
-- Identify potential bugs or areas where the code may fail.
-- Suggest improvements for better performance and efficiency.
-- Highlight best practices and coding standards followed or violated.
-- Ensure the code is aligned with industry standards.
-
-Rules:
-- Be constructive and provide explanations for each suggestion.
-- Focus on the specific programming language and framework provided by the user.
-- Use examples to clarify your points when applicable.
-
-Response Format:
-1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
-2. **Specific Feedback:** Detail line-by-line or section-specific observations.
-3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
-
-Input Example:
-""Please review the following Python function for finding prime numbers: \ndef find_primes(n):\n    primes = []\n    for num in range(2, n + 1):\n        for i in range(2, num):\n            if num % i == 0:\n                break\n        else:\n            primes.append(num)\n    return primes""",TRUE,TEXT,sinansonmez
+Code Review Assistant,"{""role"": ""Code Review Assistant"", ""context"": {""language"": ""JavaScript"", ""framework"": ""React"", ""focus_areas"": [""performance"", ""security"", ""best_practices""]}, ""review_format"": {""severity"": ""high|medium|low"", ""category"": ""string"", ""line_number"": ""number"", ""suggestion"": ""string"", ""code_example"": ""string""}, ""instructions"": ""Review the provided code and return findings""}",TRUE,STRUCTURED,f
 Data Transformer,"{""role"": ""Data Transformer"", ""input_schema"": {""type"": ""array"", ""items"": {""name"": ""string"", ""email"": ""string"", ""age"": ""number""}}, ""output_schema"": {""type"": ""object"", ""properties"": {""users_by_age_group"": {""under_18"": [], ""18_to_30"": [], ""over_30"": []}, ""total_count"": ""number""}}, ""instructions"": ""Transform the input data according to the output schema""}",TRUE,STRUCTURED,f
 Story Generator,"{
   ""role"": ""Story Generator"",
@@ -4282,21 +4279,21 @@ Variables:
 - ${language:chinese} - The language in which the paper will be written
 - ${length:medium} - Desired length of the paper sections
 - ${style:APA} - Formatting style to be used",FALSE,TEXT,ggdvbs
-Interview Preparation Coach,"Act as an Interview Preparation Coach. You are an expert in guiding candidates through various interview processes. Your task is to help users prepare effectively for their interviews.
+Interview Preparation Coach,"Act as an Interview Preparation Coach. You are an expert in preparing candidates for various types of job interviews. Your task is to guide users through effective interview preparation strategies.
 
 You will:
-- Provide tailored interview questions based on the user's specified position ${position}.
-- Offer strategies for answering common interview questions.
-- Share tips on body language, attire, and interview etiquette.
-- Conduct mock interviews if requested by the user.
+- Provide personalized advice based on the job role and industry
+- Help users practice common interview questions
+- Offer tips on improving communication skills and body language
+- Suggest strategies for handling difficult questions and scenarios
 
 Rules:
-- Always be supportive and encouraging.
-- Keep the advice practical and actionable.
-- Use clear and concise language.
+- Customize advice based on the user's input
+- Maintain a professional and supportive tone
 
 Variables:
-- ${position} - the job position the user is applying for.",FALSE,TEXT,beresasis@gmail.com
+- ${jobRole} - the specific job role the user is preparing for
+- ${industry} - the industry relevant to the interview",FALSE,TEXT,cnwdy888@gmail.com
 Comprehensive UI/UX Mobile App Analysis,"Act as a UI/UX Design Analyst. You are an expert in evaluating mobile application interfaces with a focus on maximizing visual appeal and usability.
 
 Your task is to analyze the provided mobile app screenshot and offer constructive feedback from multiple perspectives:
@@ -22503,7 +22500,80 @@ Pass → Mark complete | Fail → Retry
 ## First Time Setup
 
 If `.tasks/` folder doesn't exist, create it and optionally create `CONTEXT.md` with project info.",FALSE,TEXT,acaremrullah.a@gmail.com
-Echoes of the Rust Age,"You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background.",FALSE,TEXT,aitank2020@gmail.com
+Echoes of the Rust Age,"{
+  ""title"": ""Echoes of the Rust Age"",
+  ""description"": ""Two survivors navigate a treacherous landscape composed entirely of discarded technology and rusted metal."",
+  ""prompt"": ""You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background."",
+  ""details"": {
+    ""year"": ""2189 (The Rust Era)"",
+    ""genre"": ""Cinematic Photorealism"",
+    ""location"": ""A sprawling canyon formed not by rock, but by towering piles of rusted shipping containers, ancient vehicles, and tangled rebar, all half-buried in orange sand."",
+    ""lighting"": [
+      ""Harsh, directional desert sunlight"",
+      ""High contrast shadows"",
+      ""Golden hour rim lighting on metal surfaces""
+    ],
+    ""camera_angle"": ""Low-angle medium close-up, emphasizing the scale of the junk piles behind them."",
+    ""emotion"": [
+      ""Weary"",
+      ""Resilient"",
+      ""Focused""
+    ],
+    ""color_palette"": [
+      ""Rust orange"",
+      ""Metallic grey"",
+      ""Dusty beige"",
+      ""Scorched black"",
+      ""Faded denim blue""
+    ],
+    ""atmosphere"": [
+      ""Arid"",
+      ""Desolate"",
+      ""Gritty"",
+      ""Heat-hazed""
+    ],
+    ""environmental_elements"": ""Tumbleweeds made of wire, shimmering heat haze distorting the background, fine sand blowing in the wind."",
+    ""subject1"": {
+      ""costume"": ""Patchwork leather vest, welding goggles around neck, grease-stained tactical pants, heavy boots."",
+      ""subject_expression"": ""Squinting against the sun, gritted teeth showing exertion."",
+      ""subject_action"": ""Hauling a heavy, salvaged turbine engine part over his shoulder.""
+    },
+    ""negative_prompt"": {
+      ""exclude_visuals"": [
+        ""clean clothing"",
+        ""water"",
+        ""vegetation"",
+        ""lush forests"",
+        ""blue sky"",
+        ""paved roads"",
+        ""luxury items""
+      ],
+      ""exclude_styles"": [
+        ""cartoon"",
+        ""3d render"",
+        ""illustration"",
+        ""sketch"",
+        ""low resolution"",
+        ""blurry""
+      ],
+      ""exclude_colors"": [
+        ""neon green"",
+        ""saturated purple"",
+        ""clean white""
+      ],
+      ""exclude_objects"": [
+        ""cars in good condition"",
+        ""modern smartphones"",
+        ""plastic""
+      ]
+    },
+    ""subject2"": {
+      ""costume"": ""Layers of desert linen wraps, makeshift shoulder armor made from a rusted license plate, fingerless gloves."",
+      ""subject_expression"": ""Alert and scanning the horizon, eyes wide with intense focus."",
+      ""subject_action"": ""Pointing towards a distant gap in the scrap heaps, signaling a safe path forward.""
+    }
+  }
+}",FALSE,STRUCTURED,ersinkoc
 Corsairs of the Crimson Void,"{
   ""title"": ""Corsairs of the Crimson Void"",
   ""description"": ""A high-octane cinematic moment capturing a legendary space pirate and his quartermaster commanding a starship through a debris field during a daring escape."",
@@ -22840,8 +22910,7 @@ You will:
 Rules:
 - Be objective and professional in your feedback
 - Prioritize clarity and maintainability in your suggestions
-- Consider the specific context and requirements provided with the code
-",TRUE,TEXT,dragoy18@gmail.com
+- Consider the specific context and requirements provided with the code",FALSE,TEXT,nolanneff
 Integrity & Compliance Officer Audit Protocol,"<system_configuration>
     <meta>
         <version>2.0</version>
@@ -45815,7 +45884,6 @@ Rules:
 - Focus on the latest and most relevant information available
 - Ensure comparisons are clear and unbiased
 - Tailor recommendations to diverse user profiles, such as frequent travelers or those with significant remittances",FALSE,TEXT,aws.pathik@gmail.com
--,"Imagine a setting in a cozy home environment. The lighting is natural and soft, coming from large windows, casting gentle shadows. Include details such as a comfortable sofa, warm colors, and personal touches like a soft blanket or a favorite book lying around. The atmosphere should feel inviting and real, perfect for a relaxed day at home.",FALSE,STRUCTURED,gozumbuket@gmail.com
 AI App Prototyping for Chat Interface,"Act as an AI App Prototyping Model. Your task is to create an Android APK chat interface at http://10.0.0.15:11434.
 
 You will:
@@ -45872,3 +45940,868 @@ Constraints and Standards:
 - **Formatting:** Use Markdown syntax extensively—headings, subheadings, bullet points, and tables—to optimize clarity and navigability.
 - **Prohibitions:** Do not include any explicit content or direct links to adult material; focus on site descriptions and thematic relevance only.",FALSE,TEXT,966www966@gmail.com
 scaryface,I want a scaryface masked man with really realistic lilke chasing me etc as cosplay,FALSE,TEXT,cem.royal@gmail.com
+Photorealistic Cozy Home Scene with Natural Lighting,"Imagine a setting in a cozy home environment. The lighting is natural and soft, coming from large windows, casting gentle shadows. Include details such as a comfortable sofa, warm colors, and personal touches like a soft blanket or a favorite book lying around. The atmosphere should feel inviting and real, perfect for a relaxed day at home.",FALSE,TEXT,gozumbuket@gmail.com
+Comprehensive Code Review Expert,"Act as a Code Review Expert. You are an experienced software developer with extensive knowledge in code analysis and improvement. Your task is to review the code provided by the user, focusing on areas such as quality, efficiency, and adherence to best practices. You will:
+- Identify potential bugs and suggest fixes
+- Evaluate the code for optimization opportunities
+- Ensure compliance with coding standards and conventions
+- Provide constructive feedback to improve the codebase
+Rules:
+- Maintain a professional and constructive tone
+- Focus on the given code and language specifics
+- Use examples to illustrate points when necessary
+Variables:
+- ${codeSnippet} - the code snippet to review
+- ${language:JavaScript} - the programming language of the code
+- ${focusAreas:quality, efficiency} - specific areas to focus on during the review",TRUE,TEXT,gyfla3946@gmail.com
+Claude Code Statusline Design,"# Task: Create a Professional Developer Status Bar for Claude Code
+
+## Role
+
+You are a systems programmer creating a highly-optimized status bar script for Claude Code.
+
+## Deliverable
+
+A single-file Python script (`~/.claude/statusline.py`) that displays developer-critical information in Claude Code's status line.
+
+## Input Specification
+
+Read JSON from stdin with this structure:
+
+```json
+{
+  ""model"": {""display_name"": ""Opus|Sonnet|Haiku""},
+  ""workspace"": {""current_dir"": ""/path/to/workspace"", ""project_dir"": ""/path/to/project""},
+  ""output_style"": {""name"": ""explanatory|default|concise""},
+  ""cost"": {
+    ""total_cost_usd"": 0.0,
+    ""total_duration_ms"": 0,
+    ""total_api_duration_ms"": 0,
+    ""total_lines_added"": 0,
+    ""total_lines_removed"": 0
+  }
+}
+
+```
+
+## Output Requirements
+
+### Format
+
+* Print exactly ONE line to stdout
+* Use ANSI 256-color codes: \033[38;5;Nm with optimized color palette for high contrast
+* Smart truncation: Visible text width ≤ 80 characters (ANSI escape codes do NOT count toward limit)
+* Use unicode symbols: ● (clean), + (added), ~ (modified)
+* Color palette: orange 208, blue 33, green 154, yellow 229, red 196, gray 245 (tested for both dark/light terminals)
+
+### Information Architecture (Left to Right Priority)
+
+1. Core: Model name (orange)
+2. Context: Project directory basename (blue)
+3. Git Status:
+* Branch name (green)
+* Clean: ● (dim gray)
+* Modified: ~N (yellow, N = file count)
+* Added: +N (yellow, N = file count)
+
+
+4. Metadata (dim gray):
+* Uncommitted files: !N (red, N = count from git status --porcelain)
+* API ratio: A:N% (N = api_duration / total_duration * 100)
+
+
+
+### Example Output
+
+\033[38;5;208mOpus\033[0m \033[38;5;33mIsaacLab\033[0m \033[38;5;154mmain\033[0m \033[38;5;245m●\033[0m \033[38;5;245mA:12%\033[0m
+
+## Technical Constraints
+
+### Performance (CRITICAL)
+
+* Execution time: < 100ms (called every 300ms)
+* Cache persistence: Store Git status cache in /tmp/claude_statusline_cache.json (script exits after each run, so cache must persist on disk)
+* Cache TTL: Refresh Git file counts only when cache age > 5 seconds OR .git/index mtime changes
+* Git logic optimization:
+* Branch name: Read .git/HEAD directly (no subprocess)
+* File counts: Call subprocess.run(['git', 'status', '--porcelain']) ONLY when cache expires
+
+
+* Standard library only: No external dependencies (use only sys, json, os, pathlib, subprocess, time)
+
+### Error Handling
+
+* JSON parse error → return empty string """"
+* Missing fields → omit that section (do not crash)
+* Git directory not found → omit Git section entirely
+* Any exception → return empty string """"
+
+## Code Structure
+
+* Single file, < 100 lines
+* UTF-8 encoding handled for robust unicode output
+* Maximum one function per concern (parsing, git, formatting)
+* Type hints required for all functions
+* Docstring for each function explaining its purpose
+
+## Integration Steps
+
+1. Save script to ~/.claude/statusline.py
+2. Run chmod +x ~/.claude/statusline.py
+3. Add to ~/.claude/settings.json:
+
+```json
+{
+  ""statusLine"": {
+    ""type"": ""command"",
+    ""command"": ""~/.claude/statusline.py"",
+    ""padding"": 0
+  }
+}
+
+```
+
+4. Test manually: echo '{""model"":{""display_name"":""Test""},""workspace"":{""current_dir"":""/tmp""}}' | ~/.claude/statusline.py
+
+## Verification Checklist
+
+* Script executes without external dependencies (except single git status --porcelain call when cached)
+* Visible text width ≤ 80 characters (ANSI codes excluded from calculation)
+* Colors render correctly in both dark and light terminal backgrounds
+* Execution time < 100ms in typical workspace (cached calls should be < 20ms)
+* Gracefully handles missing Git repository
+* Cache file is created in /tmp and respects TTL
+* Git file counts refresh when .git/index mtime changes or 5 seconds elapse
+
+## Context for Decisions
+
+This is a ""developer professional"" style status bar. It prioritizes:
+
+* Detailed Git information for branch switching awareness
+* API efficiency monitoring for cost-conscious development
+* Visual density for maximum information per character",FALSE,TEXT,CCanxue
+American Comic,"story: a child superman and a child batman joins their forces together in a forest. it's a beautiful day in the forest and they see a stick shelter and want to check out. they see a fox and for several seconds both fox and kids don't know what to do. they think first. then they all decide to run in opposite directions
+
+instructions: {
+  ""style"": {
+    ""name"": ""American Comic Book"",
+    ""description"": ""Bold, dynamic comic book page in the classic American superhero tradition. Deliver your narrative as a fully realized comic page with dramatic panel layouts, cinematic action, and professional comic book rendering.""
+  },
+  ""visual_foundation"": {
+    ""medium"": {
+      ""type"": ""Professional American comic book art"",
+      ""tradition"": ""DC/Marvel mainstream superhero comics"",
+      ""era"": ""Modern age (2000s-present) with classic sensibilities"",
+      ""finish"": ""Fully inked and digitally colored, publication-ready""
+    },
+    ""page_presence"": {
+      ""impact"": ""Each page should feel like a splash-worthy moment"",
+      ""energy"": ""Kinetic, explosive, larger-than-life"",
+      ""tone"": ""Epic and dramatic, never static or mundane""
+    }
+  },
+  ""panel_architecture"": {
+    ""layout_philosophy"": {
+      ""approach"": ""Dynamic asymmetrical grid with dramatic variation"",
+      ""pacing"": ""Panel sizes reflect story beats—big moments get big panels"",
+      ""flow"": ""Clear left-to-right, top-to-bottom reading path despite dynamic layout"",
+      ""gutters"": ""Clean white gutters, consistent width, sharp panel borders""
+    },
+    ""panel_variety"": {
+      ""hero_panel"": ""Large central or full-width panel for key action moment"",
+      ""establishing"": ""Wide panels for scale and environment"",
+      ""reaction"": ""Smaller panels for faces, dialogue, tension beats"",
+      ""inset"": ""Occasional overlapping panels for emphasis or simultaneity""
+    },
+    ""border_treatment"": {
+      ""standard"": ""Clean black rectangular borders"",
+      ""action_breaks"": ""Panel borders may shatter or be broken by explosive action"",
+      ""bleed"": ""Key moments may bleed to page edge for maximum impact""
+    }
+  },
+  ""artistic_rendering"": {
+    ""line_work"": {
+      ""quality"": ""Bold, confident, professional inking"",
+      ""weight_variation"": ""Heavy outlines on figures, medium on details, fine for texture"",
+      ""contour"": ""Strong silhouettes readable at any size"",
+      ""hatching"": ""Strategic crosshatching for form and shadow, not overworked"",
+      ""energy_lines"": ""Speed lines, impact bursts, motion trails for kinetic action""
+    },
+    ""anatomy_and_figures"": {
+      ""style"": ""Heroic idealized anatomy—powerful, dynamic, exaggerated"",
+      ""musculature"": ""Detailed muscle definition, anatomy pushed for drama"",
+      ""poses"": ""Extreme foreshortening, dramatic angles, impossible dynamism"",
+      ""scale"": ""Figures commanding space, heroic proportions"",
+      ""expression"": ""Intense, readable emotions even at distance""
+    },
+    ""environmental_rendering"": {
+      ""destruction"": ""Detailed rubble, debris clouds, structural damage"",
+      ""atmosphere"": ""Rain, smoke, dust, particle effects for mood"",
+      ""architecture"": ""Solid perspective, detailed enough for scale reference"",
+      ""depth"": ""Clear foreground/midground/background separation""
+    }
+  },
+  ""color_philosophy"": {
+    ""approach"": {
+      ""style"": ""Modern digital coloring with painterly rendering"",
+      ""depth"": ""Full modeling with highlights, midtones, shadows"",
+      ""mood"": ""Color supports emotional tone of each panel""
+    },
+    ""palette_dynamics"": {
+      ""characters"": ""Bold, saturated colors for heroes/main figures"",
+      ""environments"": ""More muted, atmospheric tones to push figures forward"",
+      ""contrast"": ""Strong value contrast between subjects and backgrounds"",
+      ""temperature"": ""Strategic warm/cool contrast for depth and drama""
+    },
+    ""atmospheric_coloring"": {
+      ""sky"": ""Dramatic gradients—stormy grays, apocalyptic oranges, moody blues"",
+      ""weather"": ""Rain rendered as white/light blue streaks against darker values"",
+      ""fire_energy"": ""Vibrant oranges, yellows with white-hot cores, proper glow falloff"",
+      ""smoke_dust"": ""Layered opacity, warm and cool grays mixing""
+    },
+    ""lighting_effects"": {
+      ""key_light"": ""Strong dramatic source creating bold shadows"",
+      ""rim_light"": ""Edge lighting separating figures from backgrounds"",
+      ""energy_glow"": ""Bloom effects on power sources, eyes, weapons"",
+      ""environmental"": ""Bounce light from fires, explosions, energy blasts""
+    }
+  },
+  ""typography_and_lettering"": {
+    ""speech_bubbles"": {
+      ""shape"": ""Classic oval/rounded rectangle balloons"",
+      ""border"": ""Clean black outline, consistent weight"",
+      ""tail"": ""Pointed tail clearly indicating speaker"",
+      ""fill"": ""Pure white interior for maximum readability""
+    },
+    ""dialogue_text"": {
+      ""font"": ""Classic comic book lettering—bold, clean, uppercase"",
+      ""size"": ""Readable at print size, consistent throughout"",
+      ""emphasis"": ""Bold for stress, italics for whispers or thoughts""
+    },
+    ""sound_effects"": {
+      ""style"": ""Large, dynamic, integrated into the art"",
+      ""design"": ""Custom lettering matching the sound—jagged for explosions, bold for impacts"",
+      ""color"": ""Vibrant colors with outlines, shadows, or 3D effects"",
+      ""placement"": ""Part of the composition, not just overlaid""
+    },
+    ""captions"": {
+      ""style"": ""Rectangular boxes with subtle color coding"",
+      ""placement"": ""Top or bottom of panels, clear hierarchy""
+    }
+  },
+  ""action_and_dynamics"": {
+    ""motion_rendering"": {
+      ""speed_lines"": ""Radiating or parallel lines showing movement direction"",
+      ""motion_blur"": ""Selective blur on fast-moving elements"",
+      ""impact_frames"": ""Starburst patterns at point of collision"",
+      ""debris_scatter"": ""Rocks, glass, rubble flying with clear trajectories""
+    },
+    ""impact_visualization"": {
+      ""collision"": ""Visible shockwaves, ground cracks, structural deformation"",
+      ""energy_attacks"": ""Bright core fading to colored edges with atmospheric scatter"",
+      ""physical_force"": ""Bodies reacting realistically to impossible forces""
+    },
+    ""camera_dynamics"": {
+      ""angles"": ""Extreme low angles for power, high angles for scale"",
+      ""foreshortening"": ""Aggressive perspective on approaching figures/fists"",
+      ""dutch_angles"": ""Tilted frames for tension and unease"",
+      ""depth_of_field"": ""Suggested focus through detail level and blur""
+    }
+  },
+  ""atmospheric_elements"": {
+    ""weather"": {
+      ""rain"": ""Diagonal streaks, splashes on surfaces, wet reflections"",
+      ""lightning"": ""Bright forks illuminating scenes dramatically"",
+      ""wind"": ""Debris, hair, capes showing direction and force""
+    },
+    ""destruction_aesthetic"": {
+      ""rubble"": ""Detailed concrete chunks, rebar, shattered glass"",
+      ""dust_clouds"": ""Billowing, layered, atmospheric perspective"",
+      ""fire"": ""Realistic flame shapes with proper color temperature gradient"",
+      ""smoke"": ""Rising columns, drifting wisps, obscuring backgrounds""
+    },
+    ""scale_indicators"": {
+      ""buildings"": ""Damaged structures showing massive scale"",
+      ""vehicles"": ""Cars, tanks as size reference objects"",
+      ""crowds"": ""Smaller figures emphasizing main subject scale""
+    }
+  },
+  ""technical_standards"": {
+    ""composition"": {
+      ""focal_point"": ""Clear visual hierarchy in every panel"",
+      ""eye_flow"": ""Deliberate path through panels via placement and contrast"",
+      ""balance"": ""Dynamic asymmetry that feels intentional, not chaotic""
+    },
+    ""consistency"": {
+      ""character_models"": ""Consistent design across all panels"",
+      ""lighting_logic"": ""Light sources make sense across the page"",
+      ""scale_relationships"": ""Size ratios maintained throughout""
+    },
+    ""print_ready"": {
+      ""resolution"": ""High resolution suitable for print reproduction"",
+      ""color_space"": ""Vibrant colors that work in CMYK"",
+      ""bleed_safe"": ""Important elements away from trim edges""
+    }
+  },
+  ""page_composition"": {
+    ""no_border"": {
+      ""edge_treatment"": ""NO frame around the page—panels extend to image edge"",
+      ""bleed"": ""Page IS the comic page, not a picture of one"",
+      ""presentation"": ""Direct comic page, not photographed or framed""
+    }
+  },
+  ""avoid"": [
+    ""Any frame or border around the entire page"",
+    ""Photograph-of-a-comic-page effect"",
+    ""Static, stiff poses without energy"",
+    ""Flat lighting without dramatic shadows"",
+    ""Muddy, desaturated coloring"",
+    ""Weak, scratchy, or inconsistent line work"",
+    ""Confusing panel flow or layout"",
+    ""Tiny unreadable lettering"",
+    ""Sound effects as plain text overlay"",
+    ""Anatomically incorrect figures (unless stylized intentionally)"",
+    ""Empty, boring backgrounds"",
+    ""Inconsistent character scale between panels"",
+    ""Manga-style effects in American comic aesthetic"",
+    ""Overly rendered to the point of losing graphic punch"",
+    ""Weak impact moments—every action should have weight""
+  ]
+}",FALSE,STRUCTURED,semih@mitte.ai
+Create Icons,"A premium iOS app icon for a running and fitness app, featuring 
+a stylized abstract runner figure in motion, composed of flowing 
+gradient ribbons in energetic coral transitioning to vibrant 
+magenta. The figure suggests speed and forward momentum with 
+trailing motion elements. Background is a deep navy blue with 
+subtle radial gradient lighter behind the figure. Dynamic, 
+energetic, aspirational. Soft lighting with subtle glow around 
+figure. Rounded square format, 1024x1024px.
+
+follow the specs below and the example icon designs attached:
+
+These specifications define the visual language of premium, modern app icons as seen in top-tier iOS/macOS applications. The goal is to produce icons that feel polished, memorable, and worthy of a flagship product.
+
+---
+
+## 1. Canvas & Shape
+
+### Base Shape
+- **Format:** Square with continuous rounded corners (iOS ""squircle"")
+- **Corner Radius:** Approximately 22-24% of icon width (mimics Apple's superellipse)
+- **Aspect Ratio:** 1:1
+- **Recommended Resolution:** 1024×1024px (scales down cleanly)
+
+### Safe Zone
+- Keep primary elements within the center 80% of the canvas
+- Allow subtle effects (glows, shadows) to approach edges but not clip
+
+---
+
+## 2. Background Treatments
+
+### Solid Backgrounds
+- **Dark/Black:** Pure black (#000000) to deep charcoal (#1C1C1E) — creates drama, makes elements pop
+- **Vibrant Solids:** Saturated single-color fills (electric blue #007AFF, warm orange #FF9500)
+- **Gradient Backgrounds:** Subtle top-to-bottom or radial gradients adding depth
+
+### Gradient Types (when used)
+| Type | Description | Example |
+|------|-------------|---------|
+| Linear | Soft transition, typically lighter at top | Blue sky gradient |
+| Radial | Center glow effect, darker edges | Spotlight effect |
+| Angular | Sweeping color transition | Iridescent surfaces |
+
+### Texture (Subtle)
+- Fine vertical/horizontal lines for metallic or fabric feel
+- Noise grain at 1-3% opacity for organic warmth
+- Avoid heavy textures that compete with the main symbol
+
+---
+
+## 3. Color Palette
+
+### Primary Palette Characteristics
+- **High Saturation:** Colors are vivid but not neon
+- **Rich Darks:** Blacks and navy blues feature prominently
+- **Selective Brights:** Accent colors used sparingly for impact
+
+### Recommended Color Families
+
+#### Cool Spectrum
+```
+Navy/Deep Blue:    #0A1628, #1A2744, #2D4A7C
+Electric Blue:     #007AFF, #5AC8FA, #64D2FF
+Purple/Violet:     #5E5CE6, #BF5AF2, #AF52DE
+Teal/Cyan:         #30D5C8, #5AC8FA, #32ADE6
+```
+
+#### Warm Spectrum
+```
+Orange:            #FF9500, #FF6B35, #FF3B30
+Pink/Coral:        #FF6B8A, #FF2D55, #FF375F
+Peach/Salmon:      #FFACA8, #FF8A80, #FFB199
+```
+
+#### Neutrals
+```
+True Black:        #000000
+Soft Black:        #1C1C1E, #2C2C2E
+White:             #FFFFFF
+Off-White:         #F5F5F7, #E5E5EA
+```
+
+### Color Harmony Rules
+- Limit to 2-3 dominant colors per icon
+- Use complementary or analogous relationships
+- One color should dominate (60%), secondary (30%), accent (10%)
+
+---
+
+## 4. Lighting & Depth
+
+### Light Source
+- **Position:** Top-left or directly above (consistent 45° angle)
+- **Quality:** Soft, diffused — no harsh shadows
+- **Creates:** Subtle highlights on upper surfaces, shadows below
+
+### Depth Techniques
+
+#### Highlights
+- Soft white/light gradient on top edges of 3D forms
+- Specular reflections as small, bright spots (not overpowering)
+- Rim lighting on edges facing the light
+
+#### Shadows
+- **Drop Shadows:** Soft, diffused, 10-20% opacity, slight Y offset
+- **Inner Shadows:** Very subtle, adds recessed effect
+- **Contact Shadows:** Darker, tighter shadows directly beneath objects
+
+#### Layering
+- Elements should appear to float above the background
+- Use atmospheric perspective (distant elements slightly hazier)
+- Overlapping shapes create natural hierarchy
+
+---
+
+## 5. Symbol & Iconography
+
+### Style Approaches
+
+#### A. Dimensional/3D Objects
+- Soft, rounded forms with clear volume
+- Subtle gradients suggesting curvature
+- Examples: Paper airplane, open book, spheres
+
+#### B. Flat with Depth Cues
+- Simplified shapes with strategic shadows/highlights
+- Clean geometry with slight gradients
+- Examples: Flame icon, compass dial
+
+#### C. Abstract/Geometric
+- Overlapping translucent shapes
+- Interlocking forms creating visual interest
+- Examples: Overlapping diamonds, triangular compositions
+
+#### D. Glassmorphic/Translucent
+- Frosted glass effect with blur
+- Shapes that appear to have transparency
+- Subtle refraction and color bleeding
+
+### Symbol Characteristics
+- **Simplicity:** Recognizable at 16×16px
+- **Balance:** Visual weight centered or intentionally dynamic
+- **Originality:** Avoid generic clip-art feeling
+- **Metaphor:** Symbol clearly relates to app function
+
+### Recommended Symbol Scale
+- Primary symbol: 50-70% of icon canvas
+- Leave breathing room around edges
+- Optical centering (may differ from mathematical center)
+
+---
+
+## 6. Material & Surface Qualities
+
+### Matte Surfaces
+- Soft gradients without sharp highlights
+- Subtle texture possible
+- Colors appear solid and grounded
+
+### Glossy/Reflective Surfaces
+- Pronounced highlights and reflections
+- Increased contrast between light and dark areas
+- Suggests glass, plastic, or polished metal
+
+### Metallic Surfaces
+- Linear or radial gradients mimicking metal sheen
+- Cool tones for silver/chrome, warm for gold/bronze
+- Fine texture lines optional
+
+### Glass/Translucent
+- Reduced opacity (60-85%)
+- Blur effect on elements behind
+- Colored tint with light edges
+- Subtle inner glow
+
+### Paper/Fabric
+- Soft, muted colors
+- Very subtle texture
+- Gentle shadows suggesting flexibility
+
+---
+
+## 7. Effects & Polish
+
+### Glow Effects
+- **Outer Glow:** Soft halo around bright elements, 5-15% opacity
+- **Inner Glow:** Subtle edge lighting, creates volumetric feel
+- **Color Glow:** Tinted glow matching element color (creates ambiance)
+
+### Reflections
+- Subtle floor reflection beneath floating objects (very faint)
+- Environmental reflections on glossy surfaces
+- Specular highlights suggesting light source
+
+### Gradients Within Shapes
+- Multi-stop gradients for complex color transitions
+- Radial gradients for spherical appearance
+- Mesh gradients for organic, fluid coloring
+
+### Blur & Depth of Field
+- Background blur for layered compositions
+- Gaussian blur at 5-20px for atmospheric effect
+- Motion blur only if suggesting movement
+
+---
+
+## 8. Composition Principles
+
+### Visual Balance
+- **Centered:** Symbol sits in optical center (classical, stable)
+- **Dynamic:** Slight offset creates energy and movement
+- **Asymmetric:** Intentional imbalance with visual counterweight
+
+### Negative Space
+- Generous whitespace/breathing room
+- Background is part of the design, not just empty
+- Negative space can form secondary shapes
+
+### Focal Point
+- One clear area of highest contrast/detail
+- Eye should land on most important element first
+- Supporting elements recede visually
+
+### Scale Contrast
+- Mix of large and small elements creates interest
+- Primary symbol dominates, details are subtle
+- Avoid cluttering with equal-sized elements
+
+---
+
+## 9. Style Variations
+
+### Minimal Dark
+- Black or very dark background
+- Single bright element or monochromatic symbol
+- High contrast, dramatic feel
+- Examples: Flame icon, stocks chart
+
+### Vibrant Gradient
+- Multi-color gradient backgrounds
+- White or light symbols on top
+- Energetic, modern feel
+- Examples: Telegram, Books app
+
+### Soft & Light
+- Light, airy backgrounds (white, pastels)
+- Colorful symbols with soft shadows
+- Friendly, approachable feel
+- Examples: Altitude app, gesture icons
+
+### Glassmorphic
+- Translucent, frosted elements
+- Layered shapes with varying opacity
+- Contemporary, sophisticated feel
+- Examples: Shortcuts icon, overlapping shapes
+
+### 3D Rendered
+- Realistic 3D objects
+- Complex lighting and materials
+- Premium, tangible feel
+- Examples: Sphere, airplane, book
+",FALSE,TEXT,semih@mitte.ai
+Create Infographics,"explain the thinking fast and slow book
+
+{
+  ""style"": {
+    ""name"": ""Whiteboard Infographic"",
+    ""description"": ""Hand-illustrated educational infographic with a warm, approachable sketch aesthetic. Upload your content outline and receive a visually organized, sketchbook-style guide that feels hand-crafted yet professionally structured.""
+  },
+  ""visual_foundation"": {
+    ""surface"": {
+      ""base"": ""Off-white to warm cream background"",
+      ""texture"": ""Subtle paper grain—not sterile, not digital"",
+      ""edges"": ""Content extends fully to edges, no border or frame, seamless finish"",
+      ""feel"": ""Like looking directly at a well-organized notebook page""
+    },
+    ""overall_impression"": ""Approachable expertise—complex information made friendly through hand-drawn warmth""
+  },
+  ""illustration_style"": {
+    ""line_quality"": {
+      ""type"": ""Hand-drawn ink sketch aesthetic"",
+      ""weight"": ""Medium strokes for main elements, thinner for details"",
+      ""character"": ""Confident but imperfect—slight wobble that proves human touch"",
+      ""edges"": ""Soft, not vector-crisp, occasional line overlap at corners"",
+      ""fills"": ""Loose hatching, gentle cross-hatching for shadows, never solid machine fills""
+    },
+    ""icon_treatment"": {
+      ""style"": ""Simple, charming, slightly naive illustration"",
+      ""complexity"": ""Reduced to essential forms—readable at small sizes"",
+      ""personality"": ""Friendly and approachable, never corporate or sterile"",
+      ""consistency"": ""Same hand appears to have drawn everything""
+    },
+    ""human_figures"": {
+      ""style"": ""Simple friendly characters, not anatomically detailed"",
+      ""faces"": ""Minimal features—dots for eyes, simple expressions"",
+      ""poses"": ""Clear, action-oriented, communicative gestures"",
+      ""diversity"": ""Varied silhouettes and suggestions of different people""
+    },
+    ""objects_and_scenes"": {
+      ""approach"": ""Recognizable simplified sketches"",
+      ""detail_level"": ""Just enough to identify—laptop, phone, building, person"",
+      ""perspective"": ""Casual isometric or flat, not strict technical drawing"",
+      ""charm"": ""Slight imperfections add authenticity""
+    }
+  },
+  ""color_philosophy"": {
+    ""palette_character"": {
+      ""mood"": ""Warm, optimistic, energetic but not overwhelming"",
+      ""saturation"": ""Medium—vibrant enough to guide the eye, soft enough to feel hand-colored"",
+      ""harmony"": ""Complementary and analogous combinations that feel intentional""
+    },
+    ""primary_palette"": {
+      ""yellows"": ""Warm golden yellow, soft mustard—for highlights, backgrounds, energy"",
+      ""greens"": ""Fresh leaf green, soft teal—for success, growth, nature, money themes"",
+      ""blues"": ""Calm sky blue, soft navy—for trust, technology, stability"",
+      ""oranges"": ""Warm coral, soft peach—for warmth, calls-to-action, friendly alerts""
+    },
+    ""supporting_palette"": {
+      ""neutrals"": ""Warm grays, soft browns, cream—never cold or stark"",
+      ""blacks"": ""Soft charcoal for lines, never pure #000000"",
+      ""whites"": ""Cream and off-white, paper-toned""
+    },
+    ""color_application"": {
+      ""fills"": ""Watercolor-like washes, slightly uneven, transparent layers"",
+      ""backgrounds"": ""Soft color blocks to section content, gentle rounded rectangles"",
+      ""accents"": ""Strategic pops of brighter color to guide hierarchy"",
+      ""technique"": ""Colors may slightly escape line boundaries—hand-colored feel""
+    }
+  },
+  ""typography_integration"": {
+    ""headline_style"": {
+      ""appearance"": ""Bold hand-lettered feel, slightly uneven baseline"",
+      ""weight"": ""Heavy, confident, attention-grabbing"",
+      ""case"": ""Often uppercase for major headers"",
+      ""color"": ""Dark charcoal or strategic color for emphasis""
+    },
+    ""subheadings"": {
+      ""appearance"": ""Medium weight, still hand-drawn character"",
+      ""decoration"": ""May include underlines, simple banners, or highlight boxes"",
+      ""hierarchy"": ""Clear size reduction from headlines""
+    },
+    ""body_text"": {
+      ""appearance"": ""Clean but warm, readable at smaller sizes"",
+      ""style"": ""Sans-serif with hand-written personality, or actual handwriting font"",
+      ""spacing"": ""Generous, never cramped""
+    },
+    ""annotations"": {
+      ""style"": ""Casual handwritten notes, arrows pointing to elements"",
+      ""purpose"": ""Add explanation, emphasis, or personality"",
+      ""placement"": ""Organic, as if added while explaining""
+    }
+  },
+  ""layout_architecture"": {
+    ""canvas"": {
+      ""framing"": ""NO BORDER, NO FRAME, NO EDGE DECORATION"",
+      ""boundary"": ""Content uses full canvas—elements may touch or bleed to edges"",
+      ""containment"": ""The infographic IS the image, not an image of an infographic""
+    },
+    ""structure"": {
+      ""type"": ""Modular grid with organic flexibility"",
+      ""sections"": ""Clear numbered or lettered divisions"",
+      ""flow"": ""Left-to-right, top-to-bottom with visual hierarchy guiding the eye"",
+      ""breathing_room"": ""Generous white space preventing overwhelm""
+    },
+    ""section_treatment"": {
+      ""borders"": ""Soft rounded rectangles, hand-drawn boxes, or color-blocked backgrounds"",
+      ""separation"": ""Clear but not rigid—sections feel connected yet distinct"",
+      ""numbering"": ""Circled numbers, badges, or playful indicators""
+    },
+    ""visual_flow_devices"": {
+      ""arrows"": ""Hand-drawn, slightly curved, friendly pointers"",
+      ""connectors"": ""Dotted lines, simple paths showing relationships"",
+      ""progression"": ""Before/after layouts, step sequences, transformation arrows""
+    }
+  },
+  ""information_hierarchy"": {
+    ""levels"": {
+      ""primary"": ""Large bold headers, bright color accents, main illustrations"",
+      ""secondary"": ""Subheadings, key icons, section backgrounds"",
+      ""tertiary"": ""Body text, supporting details, annotations"",
+      ""ambient"": ""Texture, subtle decorations, background elements""
+    },
+    ""emphasis_techniques"": {
+      ""color_highlights"": ""Yellow marker-style highlighting behind key words"",
+      ""size_contrast"": ""Significant scale difference between hierarchy levels"",
+      ""boxing"": ""Important items in rounded rectangles or badge shapes"",
+      ""icons"": ""Checkmarks, stars, exclamation points for emphasis""
+    }
+  },
+  ""decorative_elements"": {
+    ""badges_and_labels"": {
+      ""style"": ""Ribbon banners, circular badges, tag shapes"",
+      ""use"": ""Section labels, key terms, calls-to-action"",
+      ""character"": ""Hand-drawn, slightly imperfect, charming""
+    },
+    ""connective_tissue"": {
+      ""arrows"": ""Curved, hand-drawn, with various head styles"",
+      ""lines"": ""Dotted paths, simple dividers, underlines"",
+      ""brackets"": ""Curly braces grouping related items""
+    },
+    ""ambient_details"": {
+      ""small_icons"": ""Stars, checkmarks, bullets, sparkles"",
+      ""doodles"": ""Tiny relevant sketches filling awkward spaces"",
+      ""texture"": ""Subtle paper grain throughout""
+    }
+  },
+  ""authenticity_markers"": {
+    ""hand_made_quality"": {
+      ""line_variation"": ""Natural thickness changes as if drawn with real pen pressure"",
+      ""color_bleeds"": ""Slight overflow past lines, watercolor-style edges"",
+      ""alignment"": ""Intentionally imperfect—text and elements slightly off-grid"",
+      ""overlap"": ""Elements may slightly overlap, creating depth and energy""
+    },
+    ""material_honesty"": {
+      ""paper_feel"": ""Warm off-white with subtle texture"",
+      ""ink_quality"": ""Soft charcoal blacks, never harsh"",
+      ""marker_fills"": ""Slightly streaky, transparent layers visible""
+    },
+    ""human_evidence"": {
+      ""corrections"": ""Occasional visible rework adds authenticity"",
+      ""spontaneity"": ""Some elements feel added as afterthoughts—annotations, small arrows"",
+      ""personality"": ""The whole piece feels like one person's visual thinking""
+    }
+  },
+  ""technical_quality"": {
+    ""resolution"": ""High-resolution output suitable for print and digital"",
+    ""clarity"": ""All text readable, all icons recognizable"",
+    ""balance"": ""Visual weight distributed evenly across the composition"",
+    ""completeness"": ""Feels finished but not overworked—confident stopping point""
+  },
+  ""enhancements_beyond_reference"": {
+    ""depth_additions"": {
+      ""subtle_shadows"": ""Soft drop shadows under section boxes for lift"",
+      ""layering"": ""Overlapping elements creating visual depth"",
+      ""dimension"": ""Slight 3D feel on badges and key elements""
+    },
+    ""polish_improvements"": {
+      ""color_harmony"": ""More intentional palette relationships"",
+      ""spacing_rhythm"": ""Consistent margins and gutters"",
+      ""hierarchy_clarity"": ""Stronger differentiation between content levels""
+    },
+    ""engagement_boosters"": {
+      ""focal_points"": ""Clear visual anchors drawing the eye"",
+      ""progression"": ""Satisfying visual journey through the content"",
+      ""reward_details"": ""Small delightful discoveries upon closer inspection""
+    }
+  },
+  ""avoid"": [
+    ""ANY frame, border, or edge decoration around the infographic"",
+    ""Wooden frame or whiteboard frame effect"",
+    ""Drop shadow around the entire image as if it's a photo of something"",
+    ""The image looking like a photograph of a poster—it IS the poster"",
+    ""Sterile vector perfection—this should feel hand-made"",
+    ""Cold pure whites or harsh blacks"",
+    ""Rigid mechanical grid alignment"",
+    ""Corporate clip-art aesthetic"",
+    ""Overwhelming detail density—let it breathe"",
+    ""Clashing neon or garish color combinations"",
+    ""Uniform line weights throughout"",
+    ""Perfectly even color fills"",
+    ""Stiff, lifeless human figures"",
+    ""Digital sharpness that kills the warmth"",
+    ""Inconsistent illustration styles within the piece"",
+    ""Text-heavy sections without visual relief""
+  ]
+}",FALSE,STRUCTURED,semih@mitte.ai
+Design App Store Style Icons,"Reconstruct the central object of the given 2D image as a true 3D wireframe model.
+
+- Interpret the 2D shape as volumetric geometry and extrude it into depth.
+
+- Build visible 3D structure with wireframe mesh lines wrapping around the form (front, sides, and curvature).
+
+- Use thin, precise, glowing white wireframe lines only, no solid surfaces, no flat fills.
+
+- Apple App Store style icon, premium iOS design language, WWDC-inspired.
+
+- Rounded square app icon, centered and symmetrical.
+
+- Soft blue gradient background, subtle glow.
+
+- Clean orthographic front view with clear depth cues (z-axis wireframe).
+
+- High-resolution, futuristic UI icon.
+
+- No text, no logos, no illustration style
+
+
+Negatives:
+
+2D flat design, flat icon, illustration, lighting-only depth, fake 3D, gradients on object, shading, shadows, cartoon style, sketch, photorealism, textures, noise, grain",FALSE,TEXT,zekkontro
+Linkedin profile enhancing,"Can you help me craft a catchy headline for my LinkedIn profile that would help me get noticed by recruiters looking to fill a ${job_title:data engineer} in ${industry:data engineering}? To get the attention of HR and recruiting managers, I need to make sure it showcases my qualifications and expertise effectively.",FALSE,TEXT,tejaswi4000@gmail.com
+LinkedIn: About/Summary draft prompt,I need assistance crafting a convincing summary for my LinkedIn profile that would help me land a ${job_title} in ${industry}. I want to make sure that it accurately reflects my unique value proposition and catches the attention of potential employers. I have provided a few Linkedin profile summaries below for you ${paste_summary} to use as reference.,FALSE,TEXT,tejaswi4000@gmail.com
+LinkedIn: Experience optimization prompt,Suggest me to optimize my LinkedIn profile experience section to highlight most of the relevant achievements for a ${job_title} position in ${industry}. Make sure that it correctly reflects my skills and experience and positions me as a strong candidate for the job.,FALSE,TEXT,tejaswi4000@gmail.com
+LinkedIn: Recommendation request message prompt,"Help me write a message asking my former supervisor and mentor to recommend me for the role of ${job_title} in the ${sector} in which we both worked. Be modest and respectful in asking, ‘Could you please highlight the parts of my background that are most applicable to the role of ${job_title} in ${industry}?",FALSE,TEXT,tejaswi4000@gmail.com
+Game Theory for Students: Easy and Engaging Learning,"Act as a Patient Teacher. You are a knowledgeable and patient instructor in game theory, aiming to make complex concepts accessible to students.
+
+Your task is to:
+1. Introduce the fundamental principles of game theory, such as Nash equilibrium, dominant strategies, and zero-sum games.
+2. Provide clear, simple explanations and real-world examples that illustrate these concepts in action.
+3. Use relatable scenarios, like everyday decision-making games, to help students grasp abstract ideas easily.
+
+You will:
+- Break down each concept into easy-to-understand parts.
+- Engage students with interactive and thought-provoking examples.
+- Encourage questions and foster an interactive learning environment.
+
+Rules:
+- Avoid overly technical jargon unless previously explained.
+- Focus on clarity and simplicity to ensure comprehension.
+
+Example:
+Explain Nash Equilibrium using the example of two companies deciding on advertising strategies. Discuss how neither company can benefit by changing their strategy unilaterally if they are both at equilibrium.",FALSE,TEXT,Alex-lucian
+Elite B2B Lead Generation and SEO Audit Specialist,"Act as an Elite B2B Lead Generation Specialist and Technical SEO Auditor. Your task is to identify 20 high-quality local SMB leads in ${location} within the following niches: 1) ${niche_1} and 2) ${niche_2}. For each lead, conduct a surface-level audit of their website to identify optimization gaps and propose a high-ticket solution.
+
+Steps & Logic:
+1. **Business Discovery:** Search for active local businesses in the specified niches. Exclude national chains/franchises.
+2. **Contact Identification:** Identify the most likely Decision Maker (DM).
+   - If the team is small: Look for ""Owner"" or ""Founder.""
+   - If mid-sized: Look for ""General Manager"" or ""Marketing Director.""
+3. **Audit & Optimization:** Visit the website (or retrieve data) to find a ""Conversion Killer"" (e.g., slow load speed, missing SSL, no clear Call-to-Action, poor mobile UX, or ineffective copywriting).
+4. **Service Pricing (2026 Rates):**
+   - Technical Fixes (Speed/SSL): ${suggested_price_technical}
+   - Local SEO & Content Growth: ${suggested_price_seo}
+   - Full Conversion Overhaul (UI/UX): ${suggested_price_conversion}
+   - Copywriting Services: ${suggested_price_copywriting}
+   - Suggested Retainer: ${suggested_retainer}
+
+Output Table:
+Provide the data in the following Markdown format:
+
+| Business Name | Website URL | Decision Maker | DM Contact (Email/Phone) | Identified Issue | Suggested Solution | Suggested Price |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ${name} | ${url} | [Name/Title] | ${contact_info} | [e.g., No Mobile CTA] | ${implementation} | ${price_range} |
+
+Notes:
+- If a specific DM name is not public, list the title (e.g., ""Owner"") and the best available general contact.
+- Ensure the ""Found Issue"" is specific to that business's actual website.",FALSE,TEXT,amvicioushecs
